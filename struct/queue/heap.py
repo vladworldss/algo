@@ -95,7 +95,7 @@ class Heap(list):
         return root
 
     @staticmethod
-    def heap_sort(L, reverse=True):
+    def sort(L, reverse=True, *args):
         """
         Метод "Сортировка кучей" или "Пирамидальная сортировка"
         Постоянная сложность: O(Nlog(N))
