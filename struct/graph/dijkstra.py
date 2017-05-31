@@ -3,11 +3,11 @@
 Поиск кратчайшего пути из вершины графа до всех остальных по алгоритму 
 Дейкстры
 """
-pd = 10 ** 6  # константа бесконечности
+pd = {'∞': 10 ** 6}  # константа бесконечности
 
 
 class Matrix:
-    def __init__(self, size, infinity=pd):
+    def __init__(self, size, infinity=pd['∞']):
         self.size = size
         self.infinity = infinity
         self.__matrix = [[0 for _ in range(size)] for _ in range(size)]
@@ -45,12 +45,12 @@ def search(N, S, matrix):
     :param matrix: матрица смежности
     :return: список кратчайших путей до вершин
     """
-    weight = [pd for _ in range(N)]
+    weight = [pd['∞'] for _ in range(N)]
     weight[S] = 0
     valide = [True for _ in range(N)]
     # для каждой вершины
     for i in range(N):
-        min_weight = pd + 1
+        min_weight = pd['∞'] + 1
         id_min_weight = -1
 
         for i in range(N):
