@@ -57,12 +57,13 @@ def _eval(formula_string):
         for token in polish:
             if token in OPERATORS:  # если приходящий элемент - оператор,
                 y, x = stack.pop(), stack.pop()  # забираем 2 числа из стека
-                stack.append(OPERATORS[token][1](x, y)) # вычисляем оператор, возвращаем в стек
+                stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
             else:
                 stack.append(token)
-        return stack[0] # результат вычисления - единственный элемент в стеке
+        return stack[0]  # результат вычисления - единственный элемент в стеке
 
     return calc(shunting_yard(parse(formula_string)))
+
 
 def test():
     s = '3+4*6.2+(1.73+4.5)'
