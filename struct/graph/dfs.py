@@ -7,7 +7,7 @@ adj = [[] for i in range(n)]  # список смежности
 used = [False for i in range(n)]  # массив для хранения информации о пройденных и не пройденных вершинах
 
 # считываем граф, заданный списком ребер
-for i in range(m):
+for _ in range(m):
     v, w = map(int, input().split())
     v -= 1
     w -= 1
@@ -27,6 +27,5 @@ def dfs(v):  # процедура обхода в глубину
 def run():
     for v in range(n):
         dfs(v)
-
 
 run()
