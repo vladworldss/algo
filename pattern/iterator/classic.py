@@ -105,13 +105,13 @@ class ListCollection(Aggregate):
     Реализация спискового агрегата.
     """
 
-    __IteratorCls = ListIterator
+    _IteratorCls = ListIterator
 
     def __init__(self, collection):
         self._collection = list(collection)
 
     def iterator(self):
-        return self.__IteratorCls(self._collection, -1)
+        return self._IteratorCls(self._collection, -1)
 
 
 def test():
