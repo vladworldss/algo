@@ -40,13 +40,23 @@ def test():
         """
         while True:
             try:
-
                 yield next(iterator)
             except StopIteration:
                 break
 
+    def friendly_ride(iterator):
+        while True:
+            item = next(iterator, None)
+            if item is None:
+                break
+            yield item
+
     collection = (1, 2, 5, 6, 8)
     aggregate = ListCollection(collection)
+    assert collection == tuple(aggregate)
+
     itr = iter(aggregate)
     assert collection == tuple(ride_on_iter(itr))
-    assert collection == tuple(aggregate)
+
+    itr = iter(aggregate)
+    assert collection == tuple(friendly_ride(itr))
