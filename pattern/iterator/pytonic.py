@@ -1,6 +1,7 @@
 # coding: utf-8
 """
 Имплементация паттерна "Итератор" в стиле Python.
+
 original: https://habrahabr.ru/post/337314/
 """
 
