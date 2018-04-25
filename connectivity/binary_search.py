@@ -4,11 +4,19 @@
 """
 
 
+def empty_list(func):
+    def foo(sorted_list, key):
+        if not sorted_list:
+            return False
+        return func(sorted_list, key)
+    return foo
+
+
+@empty_list
 def search(sorted_list, key):
-
-    if not sorted_list:
-        return False
-
+    """
+    Банарный поиск элемента в отсортированном массиве.
+    """
     size = len(sorted_list)
     left = 0
     right = size - 1
@@ -20,24 +28,17 @@ def search(sorted_list, key):
         if middle_value == key:
             found = True
         elif key < middle_value:
-            right = middle-1
+            right = middle - 1
         else:
-            left = middle+1
+            left = middle + 1
     return found
 
 
+@empty_list
 def recurse_search(sorted_list, key):
     """
-    Бинарный поиск на отсортированном массиве.
-    Использует реккурсию.
-
-    :param sorted_list:
-    :param key:
-    :return:
+    Реккурсивная реализация бинарного поиска.
     """
-    if not sorted_list:
-        return False
-
     size = len(sorted_list)
     middle = size // 2
     middle_value = sorted_list[middle]
@@ -55,7 +56,7 @@ def test():
     empty_l = []
 
     for fun in [search, recurse_search]:
-        assert fun(l, 4) is True
+        assert fun(l, 3) is True
         assert fun(l, 99) is False
         assert fun([1], 1) is True
         assert search(empty_l, 99) is False
