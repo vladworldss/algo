@@ -45,10 +45,10 @@ def recurse_search(sorted_list, key):
     if middle_value == key:
         return True
 
-    if key <= middle_value:
-        return recurse_search(sorted_list[:middle_value], key)
+    elif key < middle_value:
+        return recurse_search(sorted_list[:middle-1], key)
     else:
-        return recurse_search(sorted_list[middle_value:], key)
+        return recurse_search(sorted_list[middle+1:], key)
 
 
 def test():
@@ -59,4 +59,4 @@ def test():
         assert fun(l, 3) is True
         assert fun(l, 99) is False
         assert fun([1], 1) is True
-        assert search(empty_l, 99) is False
+        assert fun(empty_l, 99) is False

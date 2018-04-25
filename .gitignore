@@ -2,4 +2,6 @@
 test.py
 .idea
 .pytest_cache/
+name.txt
+train.py
 
